@@ -1,3 +1,9 @@
+fonts-android (1:4.4.4r2-6+rpi1) jessie; urgency=low
+
+  * Use fixed Roboto font
+
+ -- Serge Schneider <serge@raspberrypi.org>  Sun, 31 May 2015 06:30:19 +0100
+
 fonts-android (1:4.4.4r2-6) unstable; urgency=medium
 
   * Team upload
