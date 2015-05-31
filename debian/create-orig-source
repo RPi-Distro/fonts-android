@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+#Try to get upstream latest files
+TAG=android-4.4.3_r1.1
+VERSION="4.4.3r1.1"
+TARBALL=fonts-android_$VERSION
+CURDIR=$(pwd)
+TMPDIR=$(mktemp -d --tmpdir=$CURDIR get-orig-source-XXXXXXXXXX)
+
+[ $? != 0 ] && exit 1
+umask 022
+pushd "$TMPDIR"
+git init
+git remote add -t HEAD --tags origin https://android.googlesource.com/platform/frameworks/base.git
+git config core.sparseCheckout true
+cat > .git/info/sparse-checkout << EOF
+data/fonts/*
+EOF
+git pull --depth=1 origin HEAD
+git checkout -b $TAG $TAG
+pushd data/fonts
+chmod -x *.ttf
+tar -cJvf $CURDIR/$TARBALL.tar.xz .
+popd
+popd
+rm -rf $TMPDIR

@@ -1,0 +1,2 @@
+Droid*.ttf	usr/share/fonts/truetype/droid
+debian/local/*.conf	etc/fonts/conf.avail

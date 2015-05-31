@@ -1,0 +1,7 @@
+version=3
+
+opts="downloadurlmangle=s/\+/\+archive/;s/$/\/data\/fonts\.tar\.gz/,\
+filenamemangle=s/\/platform\/frameworks\/base\/\+\///;s/$/\.tar\.gz/,\
+uversionmangle=s/_r/r/" \
+https://android.googlesource.com/platform/frameworks/base/ \
+ /platform/frameworks/base/\+/android-(\d.*r\d.*)

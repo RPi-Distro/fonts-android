@@ -1,0 +1,10 @@
+As of release 1:4.4.4r2-4 this package no longer installs the DroidSansFallback.ttf
+and DroidSansFallbackLegacy.ttf fonts in font-config-monitored paths.
+
+This is meant to fix bug #762296 (http://bugs.debian.org/762296) as these file share
+the same name ("Droid Sans Fallback") with DroidSansFallback.ttf showing up before
+DroidSansFallbackFull.ttf while the latter is the preferred font for
+rendering Chinese content in some installations.
+
+As a consequence, the two offending files are moved in /usr/share/fonts-droid/truetype
+and therefore not automatically seen by fontconfig.

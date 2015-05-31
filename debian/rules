@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+get-orig-source:
+	$(dir $(firstword $(MAKEFILE_LIST)))create-orig-source
+
+override_dh_install:
+	dh_install
+	for f in DroidSansFallback.ttf DroidSansFallbackLegacy.ttf ; \
+	do \
+		cd debian/fonts-droid/usr/share ; \
+		mv fonts/truetype/droid/$$f \
+			fonts-droid/truetype/$$f || true ; \
+	done
+

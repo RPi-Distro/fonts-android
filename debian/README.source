@@ -1,0 +1,13 @@
+fonts-android for Debian
+------------------------
+
+The latest versions of these fonts are available from the Android Git
+repositories at
+<http://android.googlesource.com/platform/frameworks/base>.  The fonts
+are located in the `data/fonts' subdirectory.
+
+The debian/watch file tracks font from released tags for each new
+release of Androids. To update font you just need to run uscan and
+import the resulting tarball using git-import-orig.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>, Mon, 16 Jun 2014 21:57:12 +0530

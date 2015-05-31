@@ -1,0 +1,43 @@
+Source: fonts-android
+Section: fonts
+Priority: optional
+Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Uploaders: Simon Ochsenreither <simon@ochsenreither.de>,
+           Vasudev Kamath <kamathvasudev@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.6
+Homepage: https://android.googlesource.com/platform/frameworks/base/
+Vcs-Git: git://anonscm.debian.org/pkg-fonts/fonts-android.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-fonts/fonts-android.git;a=summary
+
+Package: fonts-droid
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.7.2)
+Replaces: ttf-droid (<< 1:4.2~r1-1~)
+Breaks: ttf-droid (<< 1:4.2~r1-1~)
+Description: handheld device font with extensive style and language support
+ The Droid family of fonts consists of Droid Sans (Regular and Bold), 
+ Droid Sans Mono (Regular) and Droid Serif (Regular, Bold, Italic and
+ BoldItalic).
+ .
+ Each contains extensive character set coverage including
+ Western Europe, Eastern/Central Europe, Baltic, Cyrillic, Greek and
+ Turkish support. The Droid Sans regular font also includes support for
+ Arabic, Simplified and Traditional Chinese, Hebrew, Japanese, Korean and 
+ Thai.
+ .
+ Droid was designed by Ascender's Steve Matteson and hinted to provide
+ optimal quality for screen text.
+
+Package: fonts-roboto
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.6~)
+Description: sans-serif font family released with Android Ice Cream Sandwich
+ This package contains fonts released with Android Ice Cream Sandwich OS.
+ Google describes the font as "modern yet approachable and emotional". This
+ family includes regular and oblique styles of Thin, Light, Regular, Medium,
+ Bold, Black, and Condensed widths.

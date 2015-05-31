@@ -1,0 +1,4 @@
+rm_conffile /etc/fonts/conf.avail/60-droid-sans-mono-fonts.conf 1:4.3-2~ fonts-droid 
+rm_conffile /etc/fonts/conf.avail/59-droid-serif-fonts.conf 1:4.3-2~ fonts-droid
+rm_conffile /etc/fonts/conf.avail/65-droid-sans-fonts.conf 1:4.4.4r2-2~ fonts-droid
+mv_conffile /etc/fonts/conf.avail/65-droid-sans-fallback.conf /etc/fonts/conf.avail/69-droid-sans-fallback.conf 1:4.4.4r2-6~ fonts-droid

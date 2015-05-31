@@ -1,0 +1,211 @@
+fonts-android (1:4.4.4r2-6) unstable; urgency=medium
+
+  * Team upload
+
+  [ Vasudev Kamath ]
+  * Increase priority of droid-sans-fallback.conf to 69 to avoid
+    overriding 65-nonlatin.conf.
+    Close: bug#772687, Thanks to Norbert Preining.
+  * Update maintscript to remove 65-droid-sans-fallback.conf during
+    upgrade.
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 28 Dec 2014 22:36:29 +0100
+
+fonts-android (1:4.4.4r2-5) unstable; urgency=medium
+
+  * Fix typo in maintscript, we never built fonts-android binary from this
+    source package.
+    Closes: bug#772457, Thanks to Niels Thykier.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Sun, 14 Dec 2014 17:17:03 +0530
+
+fonts-android (1:4.4.4r2-4) unstable; urgency=low
+
+  * Team upload
+  * No longer use xz extreme compression for deb packages
+  * Move DroidSansFallback.ttf and DroidSansFallbackLegacy.ttf in
+    /usr/share/fonts-droid/truetype which is not monitored by
+    fontconfig, leaving DroidSansFallbackFull.ttf as the only
+    font file to provide "Droid Sans Fallback"
+    Closes: #762296
+    Thanks to Jonas Smedegaard and Gunnar Hjalmarsson for their
+    input about this issue.
+  * Use machine-readable copyright format
+  * Update Standards to 3.9.6 (checked)
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 18 Oct 2014 15:31:51 +0200
+
+fonts-android (1:4.4.4r2-3) unstable; urgency=low
+
+  * Drop the symlink in conf.avail and clean it out for upgrades
+  * Drop the mention of 65-droid-sans-fonts.conf in debian/copyright
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 20 Sep 2014 14:08:04 +0200
+
+fonts-android (1:4.4.4r2-2) unstable; urgency=low
+
+  * Team upload
+  * Patch from Ubuntu
+  * debian/local/65-droid-sans-fonts.conf:
+    - Dropped. We want to cherry pick Droid Sans Fallback for rendering
+      Chinese content, and 65-droid-sans-fonts.conf has defeated that
+      purpose and caused confusion (LP: #1334495, LP: #1351092).
+      Closes: #762237, #729752, #661235
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 20 Sep 2014 08:32:02 +0200
+
+fonts-android (1:4.4.4r2-1) unstable; urgency=medium
+
+  * Imported Upstream version 4.4.4r2
+    Closes: bug#733077, Thanks to Chris Lawrence.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Thu, 14 Aug 2014 17:08:29 +0530
+
+fonts-android (1:4.4.3r1.1-1) unstable; urgency=medium
+
+  * Update create_orig_source script to 4.4.3_r1.1 version
+  * Imported Upstream version 4.4.3r1.1.
+  * Add extra fontconfig recipe for making Droid Sans as the default font
+    for Chinese content.
+    Closes: bug#750884, Thanks to Gunnar Hjalmarsson.
+  * Upload to unstable
+  * Update README.source suggesting use of uscan, now that uscan scans
+    upstream git repository tags for new release.
+  * Drop Roboto-BlackItalic.ttf Roboto-Black.ttf Roboto-Medium.ttf
+    Roboto-MediumItalic.ttf RobotoCondensed-Light.ttf
+    RobotoCondensed-LightItalic.ttf RobotoSpecimenBook.pdf variants which
+    are not in upstream tarball.
+  * Use regexp to install all Droid fonts available in upstream.
+    Closes: bug#737105, Thanks to Hideki Yamane.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Tue, 17 Jun 2014 19:42:14 +0530
+
+fonts-android (1:4.3-3) unstable; urgency=medium
+
+  * Team upload.
+  * debian/watch
+    - now we can track upstream version.
+
+ -- Hideki Yamane <henrich@debian.org>  Fri, 31 Jan 2014 22:46:51 +0900
+
+fonts-android (1:4.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * debian/maintscript
+    - remove unnecessary old conffiles (Closes: #681634)
+  * debian/control
+    - bump up Pre-Depends: dpkg (>= 1.15.7.2) since to support rm_conffile
+    - set Standards-Version: 3.9.5
+
+ -- Hideki Yamane <henrich@debian.org>  Wed, 29 Jan 2014 13:09:42 +0900
+
+fonts-android (1:4.3-1) unstable; urgency=low
+
+  * Team upload
+  * New upstream "release" (indeed version 1.100141 of Roboto fonts)
+    Closes: #721959
+
+ -- Christian Perrier <bubulle@debian.org>  Fri, 13 Sep 2013 22:14:11 +0200
+
+fonts-android (1:4.2.r1-2) unstable; urgency=low
+
+  * Bumped Standards-Version to 3.9.4, this didn't require any changes to
+    the source package.
+  * Decreased the version dependency of debhelper to 8.0.0 to allow
+    backporting.
+  * Makred fonts-roboto and fonts-droid as Multi-Arch foreign to allow
+    proper installation on multi-arch systems.
+  * Reduced debian/compat to 8 allow easy backporting.
+  * Dropped ttf-droid transitional dummy package.
+  * Upload to unstable.
+  * Drop installing of DroidSansThai.ttf, file doesn't exist any more in
+    upstream.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Sat, 11 May 2013 22:16:55 +0530
+
+fonts-android (1:4.2.r1-1) experimental; urgency=low
+
+  [ Andrew Starr-Bochicchio ]
+  * debian/local/65-droid-sans-fonts.conf: (Closes: #686685)
+   - Update so that there are not multiple values within
+     test tags as Fontconfig warns that this is not supported.
+  * Use xz compression for the package
+
+  [ Vasudev Kamath ]
+  * Recreated the source tarball including the Roboto and other fonts
+    released with Android 4.2 release.
+    Closes: #651600, #681330
+  * Changed version string to use same version as Android release version
+  * debian/control
+    + Source package named to fonts-android as the source package with this
+      release contains multiple font family
+    + Introduced fonts-roboto binary package which ships Roboto fonts
+    + Added myself to uploaders of the package
+    + Added Pre-Depends on dpkg (>= 1.15.6~) on both binary package to supress
+      lintian warnings.
+  * debian/install renamed to debian/fonts-droid.install
+  * debian/fonts-roboto.install is introduced to install Roboto fonts
+  * debian/rules:
+    + Introduced get-orig-source target to allow construction of original
+      source tarball.
+  * debian/create-orig-source:
+    + Script to support get-orig-source target.
+
+  [ Fabian Greffrath ]
+  * Add an epoch to the version number, as 4.2 < 20111207.
+  * Install the exact same set of Droid fonts as in the previous package
+    revision.
+  * The fonts-droid packages must not Provides: ttf-droid, the files are
+    installed into different locations.
+  * Fix Vcs-* fields in debian/control.
+  * Fix versions in Breaks and Replaces relations.
+  * Turn debian/bug/* into real debhelper helper files.
+  * Move debian/links to fonts-droid.links.
+  * Move debian/preinst to fonts-droid.preinst.
+  * Update debian/README.Debian with instructions to reconstruct the Debian
+    source tarball and rename it to README.source, which is more appropriate.
+  * Change Homepage field to point to the Android Git repository.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Wed, 28 Nov 2012 22:16:06 +0530
+
+fonts-droid (20111207+git-1) unstable; urgency=low
+
+  * Team upload
+
+  [ Jon Severinsson ]
+  * Update to new git snapshot. Closes: #664643
+
+  [ Christian Perrier ]
+  * Updates Standards to 3.9.3 (checked)
+  * Bump debhelper compatibility to 9
+
+ -- Christian Perrier <bubulle@debian.org>  Wed, 28 Mar 2012 22:47:51 +0200
+
+fonts-droid (20101110+git-3) unstable; urgency=low
+
+  * Team upload.
+  * No longer hijack the monospace/serif/sans-serif fontconfig aliases
+  * Reduce priority of the transitional package
+  * Update the homepage to droidfonts.com
+  * Use Breaks instead of Conflicts
+  * Drop unused lintian overrides
+  * Link to new git repository
+  * Add a dummy watch file
+
+ -- Paul Wise <pabs@debian.org>  Mon, 30 Jan 2012 10:48:57 +0800
+
+fonts-droid (20101110+git-2) unstable; urgency=low
+
+  * Team upload
+  * Rename source package to "fonts-droid" to fit the Font
+    Packages Naming Policy.
+  * Bump Standards to 3.9.2 (checked)
+  * Avoid lintian warning about fonts being also in ttf-droid
+
+ -- Christian Perrier <bubulle@debian.org>  Tue, 23 Aug 2011 06:10:13 +0200
+
+ttf-droid (20101110+git-1) unstable; urgency=low
+
+  * ITP: ttf-droid (closes: #511036)
+
+ -- Simon Ochsenreither <simon@ochsenreither.de>  Wed, 10 Nov 2010 14:55:51 +0100
